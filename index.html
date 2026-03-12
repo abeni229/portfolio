@@ -15,17 +15,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --coral: #FF6B6B;
-  --orange: #FF8C42;
-  --gold: #FFD166;
-  --teal: #06D6A0;
-  --blue: #118AB2;
-  --purple: #9B5DE5;
-  --cream: #FFF8F0;
-  --dark: #1a0a2e;
-  --text-dark: #1a0a2e;
-  --text-mid: #4a3f6b;
-  --text-light: #8b7db5;
+  --coral: #FF6B6B; --orange: #FF8C42; --gold: #FFD166; --teal: #06D6A0;
+  --blue: #118AB2; --purple: #9B5DE5; --cream: #FFF8F0; --dark: #1a0a2e;
+  --text-dark: #1a0a2e; --text-mid: #4a3f6b; --text-light: #8b7db5;
   --grad1: linear-gradient(135deg, #FF6B6B, #FF8C42, #FFD166);
   --grad2: linear-gradient(135deg, #06D6A0, #118AB2);
   --grad3: linear-gradient(135deg, #9B5DE5, #FF6B6B);
@@ -34,33 +26,42 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--cream);color:var(--text-dark);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
- 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 5rem;background:rgba(255,248,240,0.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,107,107,0.1);}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 5rem;background:rgba(255,248,240,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,107,107,0.1);transition:box-shadow .3s;}
 .nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.5rem;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
 .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
-.nav-links a{color:var(--text-mid);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .3s;position:relative;}
+.nav-links a{color:var(--text-mid);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .3s;position:relative;}
 .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--grad1);transition:width .3s;border-radius:2px;}
 .nav-links a:hover{color:var(--coral);}
 .nav-links a:hover::after{width:100%;}
 .nav-cta{padding:.6rem 1.5rem;background:var(--grad1);color:white!important;border-radius:100px;font-weight:600!important;box-shadow:0 4px 20px rgba(255,107,107,.35);transition:transform .3s,box-shadow .3s!important;}
 .nav-cta::after{display:none!important;}
 .nav-cta:hover{transform:translateY(-2px)!important;box-shadow:0 8px 30px rgba(255,107,107,.5)!important;}
- 
-/* HERO */
+
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:none;border:none;cursor:pointer;padding:4px;border-radius:8px;transition:background .2s;}
+.hamburger:hover{background:rgba(255,107,107,.08);}
+.hamburger span{display:block;height:2px;border-radius:2px;background:var(--text-mid);transition:all .35s;transform-origin:center;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:490;background:rgba(255,248,240,0.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity .3s;}
+.mobile-nav.open{opacity:1;pointer-events:all;}
+.mobile-nav a{font-family:'Playfair Display',serif;font-weight:700;font-size:2rem;color:var(--text-dark);text-decoration:none;transition:color .2s;}
+.mobile-nav a:hover{color:var(--coral);}
+.mobile-nav .mnav-cta{padding:.9rem 2.5rem;background:var(--grad1);color:white!important;border-radius:100px;font-size:1.1rem;box-shadow:0 8px 30px rgba(255,107,107,.35);}
+
 #hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 5rem 4rem;position:relative;overflow:hidden;gap:4rem;}
 .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.3;pointer-events:none;animation:blobFloat 8s ease-in-out infinite;}
-.blob-1{width:500px;height:500px;background:#FF6B6B;top:-100px;right:-100px;animation-delay:0s;}
+.blob-1{width:500px;height:500px;background:#FF6B6B;top:-100px;right:-100px;}
 .blob-2{width:400px;height:400px;background:#FFD166;bottom:-50px;left:-80px;animation-delay:2s;}
 .blob-3{width:300px;height:300px;background:#9B5DE5;top:40%;right:10%;animation-delay:4s;}
 .blob-4{width:200px;height:200px;background:#06D6A0;bottom:25%;left:35%;animation-delay:1s;}
 @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(20px,-30px) scale(1.05);}66%{transform:translate(-15px,20px) scale(.95);}}
- 
 .hero-left{position:relative;z-index:2;}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem 1.1rem;background:white;border-radius:100px;font-size:.75rem;font-weight:600;color:var(--text-mid);box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:2rem;opacity:0;animation:slideUp .7s ease .2s forwards;}
 .hero-badge-dot{width:8px;height:8px;background:var(--teal);border-radius:50%;box-shadow:0 0 0 3px rgba(6,214,160,.2);animation:pulse 2s ease infinite;}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(6,214,160,.2);}50%{box-shadow:0 0 0 6px rgba(6,214,160,.1);}}
- 
 .hero-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3rem,6vw,5.5rem);line-height:1.05;letter-spacing:-.03em;color:var(--text-dark);opacity:0;animation:slideUp .8s ease .4s forwards;}
 .hero-title .g{background:var(--grad3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;}
 .hero-sub{font-size:1.05rem;color:var(--text-mid);line-height:1.75;margin-top:1.5rem;max-width:480px;opacity:0;animation:slideUp .8s ease .6s forwards;}
@@ -69,7 +70,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .btn-main:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(255,107,107,.5);}
 .btn-sec{padding:1rem 2.2rem;background:white;color:var(--text-dark);border-radius:100px;font-weight:600;font-size:.9rem;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s;border:1.5px solid rgba(0,0,0,.07);}
 .btn-sec:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.12);}
- 
 .hero-right{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;opacity:0;animation:fadeIn 1s ease .9s forwards;}
 .hero-visual{width:360px;height:460px;background:white;border-radius:28px;box-shadow:0 40px 80px rgba(0,0,0,.12);padding:2.5rem;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;}
 .hero-visual::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--grad4);}
@@ -93,8 +93,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .fci1{background:rgba(255,107,107,.15);}
 .fci2{background:rgba(6,214,160,.15);}
 @keyframes floatCard{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
- 
-/* ABOUT */
+
 #about{padding:8rem 5rem;background:white;position:relative;overflow:hidden;}
 .about-shape{position:absolute;width:600px;height:600px;border-radius:50%;background:linear-gradient(135deg,rgba(255,107,107,.05),rgba(155,93,229,.05));top:-200px;right:-200px;pointer-events:none;}
 .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:.8rem;}
@@ -119,14 +118,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .ai3{background:rgba(155,93,229,.12);}
 .acard-title{font-weight:700;font-size:.88rem;color:var(--text-dark);margin-bottom:.3rem;}
 .acard-text{font-size:.78rem;color:var(--text-light);line-height:1.6;}
- 
-/* SKILLS */
+
 #skills{padding:8rem 5rem;background:var(--dark);position:relative;overflow:hidden;color:white;}
 .skills-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 10% 50%,rgba(255,107,107,.12) 0%,transparent 50%),radial-gradient(ellipse at 90% 20%,rgba(155,93,229,.15) 0%,transparent 50%),radial-gradient(ellipse at 50% 90%,rgba(6,214,160,.1) 0%,transparent 50%);pointer-events:none;}
 #skills .eyebrow{color:var(--gold);}
 #skills .s-title{color:white;}
 .sg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.sk-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;transition:all .4s;position:relative;overflow:hidden;}
+.sk-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;transition:all .4s;}
 .sk-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.06);}
 .sk-hd{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;}
 .sk-ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;}
@@ -149,8 +147,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .sf4{background:linear-gradient(90deg,var(--gold),var(--orange));}
 .sf5{background:linear-gradient(90deg,var(--blue),var(--teal));}
 .sf6{background:linear-gradient(90deg,var(--orange),var(--gold));}
- 
-/* PROJECTS */
+
 #projects{padding:8rem 5rem;background:var(--cream);position:relative;overflow:hidden;}
 .pg{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
 .pcard{background:white;border-radius:24px;overflow:hidden;box-shadow:0 4px 30px rgba(0,0,0,.07);transition:transform .4s,box-shadow .4s;border:1.5px solid rgba(0,0,0,.05);}
@@ -167,8 +164,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .pdesc{font-size:.83rem;line-height:1.75;color:var(--text-mid);margin-bottom:1.3rem;}
 .plink{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:700;color:var(--coral);text-decoration:none;transition:gap .3s;}
 .plink:hover{gap:.8rem;}
- 
-/* CONTACT */
+
 #contact{padding:8rem 5rem;background:white;position:relative;overflow:hidden;}
 .contact-deco{position:absolute;width:500px;height:500px;background:linear-gradient(135deg,rgba(255,107,107,.06),rgba(155,93,229,.06));border-radius:50%;bottom:-200px;right:-100px;pointer-events:none;}
 .cg{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
@@ -182,61 +178,68 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .ci3{background:rgba(26,10,46,.08);}
 .c-lbl{font-size:.65rem;color:var(--text-light);font-weight:500;display:block;margin-bottom:.1rem;text-transform:uppercase;letter-spacing:.08em;}
 .c-val{font-size:.83rem;color:var(--text-dark);font-weight:600;}
-.cform{display:flex;flex-direction:column;gap:1.1rem;}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.fg{display:flex;flex-direction:column;gap:.4rem;}
-.fl{font-size:.7rem;font-weight:700;color:var(--text-mid);text-transform:uppercase;letter-spacing:.1em;}
-.fi,.ft{padding:.85rem 1.1rem;border:1.5px solid rgba(0,0,0,.1);border-radius:11px;font-family:'DM Sans',sans-serif;font-size:.86rem;color:var(--text-dark);background:var(--cream);outline:none;transition:border-color .3s,box-shadow .3s,background .3s;}
-.fi:focus,.ft:focus{border-color:var(--coral);background:white;box-shadow:0 0 0 4px rgba(255,107,107,.1);}
-.ft{height:120px;resize:none;}
-.fsub{padding:1rem 2rem;background:var(--grad1);color:white;border:none;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;box-shadow:0 8px 30px rgba(255,107,107,.35);transition:transform .3s,box-shadow .3s;}
-.fsub:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(255,107,107,.5);}
- 
+.direct-contact{display:flex;flex-direction:column;gap:1rem;}
+.dc-intro{font-size:.85rem;color:var(--text-light);margin-bottom:.5rem;line-height:1.6;}
+.dc-btn{display:flex;align-items:center;gap:1.2rem;padding:1.2rem 1.5rem;border-radius:16px;text-decoration:none;border:1.5px solid rgba(0,0,0,.07);transition:all .3s;position:relative;overflow:hidden;background:white;}
+.dc-btn::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;}
+.dc-btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.1);}
+.dc-btn:hover::before{opacity:1;}
+.dc-btn:hover .dc-arrow{transform:translateX(4px);}
+.dc-email::before{background:linear-gradient(135deg,rgba(255,107,107,.05),rgba(255,140,66,.05));}
+.dc-email:hover{border-color:rgba(255,107,107,.3);}
+.dc-linkedin::before{background:linear-gradient(135deg,rgba(17,138,178,.05),rgba(6,214,160,.05));}
+.dc-linkedin:hover{border-color:rgba(17,138,178,.3);}
+.dc-github::before{background:linear-gradient(135deg,rgba(155,93,229,.05),rgba(255,107,107,.05));}
+.dc-github:hover{border-color:rgba(155,93,229,.3);}
+.dc-btn-icon{font-size:1.4rem;flex-shrink:0;}
+.dc-btn div{display:flex;flex-direction:column;gap:.2rem;flex:1;}
+.dc-btn-label{font-weight:700;font-size:.88rem;color:var(--text-dark);}
+.dc-btn-sub{font-size:.72rem;color:var(--text-light);}
+.dc-arrow{font-size:1rem;color:var(--text-light);transition:transform .3s;margin-left:auto;}
+
 footer{background:var(--dark);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5rem;font-size:.78rem;}
 footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;}
- 
+
 @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
- 
-@media(max-width:900px){
-  nav{padding:1.2rem 2rem;}
-  #hero{grid-template-columns:1fr;padding:7rem 2rem 4rem;}
-  .hero-right{display:none;}
-  #about,#skills,#projects,#contact{padding:5rem 2rem;}
-  .about-grid,.cg,.pg{grid-template-columns:1fr;gap:2.5rem;}
-  .sg{grid-template-columns:1fr;}
-  .frow{grid-template-columns:1fr;}
-  .nav-links li:not(:last-child){display:none;}
+
+@media(max-width:1024px){
+  nav{padding:1.2rem 2.5rem;}
+  #hero{padding:8rem 2.5rem 4rem;gap:2.5rem;}
+  #about,#skills,#projects,#contact{padding:5rem 2.5rem;}
+  .sg{grid-template-columns:repeat(2,1fr);}
 }
- 
-.direct-contact { display: flex; flex-direction: column; gap: 1rem; }
-.dc-intro { font-size: .85rem; color: var(--text-light); margin-bottom: .5rem; line-height: 1.6; }
-.dc-btn { display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 1.5rem; border-radius: 16px; text-decoration: none; border: 1.5px solid rgba(0,0,0,.07); transition: all .3s; position: relative; overflow: hidden; }
-.dc-btn::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity .3s; }
-.dc-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,.1); }
-.dc-btn:hover::before { opacity: 1; }
-.dc-btn:hover .dc-arrow { transform: translateX(4px); }
-.dc-email { background: white; }
-.dc-email::before { background: linear-gradient(135deg, rgba(255,107,107,.05), rgba(255,140,66,.05)); }
-.dc-email:hover { border-color: rgba(255,107,107,.3); }
-.dc-linkedin { background: white; }
-.dc-linkedin::before { background: linear-gradient(135deg, rgba(17,138,178,.05), rgba(6,214,160,.05)); }
-.dc-linkedin:hover { border-color: rgba(17,138,178,.3); }
-.dc-github { background: white; }
-.dc-github::before { background: linear-gradient(135deg, rgba(155,93,229,.05), rgba(255,107,107,.05)); }
-.dc-github:hover { border-color: rgba(155,93,229,.3); }
-.dc-btn-icon { font-size: 1.4rem; flex-shrink: 0; }
-.dc-btn label, .dc-btn div { display: flex; flex-direction: column; gap: .2rem; flex: 1; }
-.dc-btn-label { font-weight: 700; font-size: .88rem; color: var(--text-dark); }
-.dc-btn-sub { font-size: .72rem; color: var(--text-light); }
-.dc-arrow { font-size: 1rem; color: var(--text-light); transition: transform .3s; margin-left: auto; }
+@media(max-width:768px){
+  nav{padding:1.1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .mobile-nav{display:flex;}
+  #hero{grid-template-columns:1fr;padding:7rem 1.5rem 4rem;text-align:center;}
+  .hero-left{display:flex;flex-direction:column;align-items:center;}
+  .hero-sub{text-align:center;}
+  .hero-right{display:none;}
+  .hero-actions{justify-content:center;}
+  #about,#skills,#projects,#contact{padding:4rem 1.5rem;}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .cg{grid-template-columns:1fr;gap:2.5rem;}
+  .pg{grid-template-columns:1fr;gap:1.5rem;}
+  .sg{grid-template-columns:1fr;}
+  .s-title{font-size:clamp(1.8rem,7vw,2.5rem);}
+}
+@media(max-width:480px){
+  nav{padding:1rem 1.2rem;}
+  #hero{padding:6.5rem 1.2rem 3rem;}
+  #about,#skills,#projects,#contact{padding:3.5rem 1.2rem;}
+  footer{padding:1.5rem 1.2rem;}
+  .btn-main,.btn-sec{padding:.85rem 1.7rem;font-size:.85rem;}
+}
 </style>
 </head>
 <body>
- 
+
 <nav>
   <a href="#hero" class="nav-logo">RG.</a>
   <ul class="nav-links">
@@ -245,15 +248,21 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     <li><a href="#projects">Projets</a></li>
     <li><a href="#contact" class="nav-cta">Me contacter</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
- 
-<!-- HERO -->
+
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Menu navigation">
+  <a href="#about" class="mnav-link">À propos</a>
+  <a href="#skills" class="mnav-link">Compétences</a>
+  <a href="#projects" class="mnav-link">Projets</a>
+  <a href="#contact" class="mnav-cta mnav-link">Me contacter</a>
+</div>
+
 <section id="hero">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-  <div class="blob blob-4"></div>
- 
+  <div class="blob blob-1"></div><div class="blob blob-2"></div>
+  <div class="blob blob-3"></div><div class="blob blob-4"></div>
   <div class="hero-left">
     <div class="hero-badge"><span class="hero-badge-dot"></span>Disponible pour de nouvelles opportunités</div>
     <h1 class="hero-title">Je construis des<br><span class="g">apps qui comptent.</span></h1>
@@ -263,7 +272,6 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
       <a href="#contact" class="btn-sec">Me contacter</a>
     </div>
   </div>
- 
   <div class="hero-right">
     <div class="hero-visual">
       <div>
@@ -271,10 +279,8 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
         <div class="hv-name">Roukayath Gazaliou</div>
         <div class="hv-role">Développeuse Full Stack · Bénin</div>
         <div class="hv-chips">
-          <span class="chip c1">Laravel</span>
-          <span class="chip c2">PHP</span>
-          <span class="chip c3">JavaScript</span>
-          <span class="chip c4">Figma</span>
+          <span class="chip c1">Laravel</span><span class="chip c2">PHP</span>
+          <span class="chip c3">JavaScript</span><span class="chip c4">Figma</span>
           <span class="chip c5">MySQL</span>
         </div>
       </div>
@@ -289,8 +295,7 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     <div class="float-card fc2"><div class="fci fci2">✅</div>RoukLegal livré</div>
   </div>
 </section>
- 
-<!-- ABOUT -->
+
 <section id="about">
   <div class="about-shape"></div>
   <div class="eyebrow">À propos</div>
@@ -301,10 +306,8 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
       <p>Mon expertise tourne autour de <strong>PHP/Laravel</strong> pour le backend, et du <strong>JavaScript</strong> pour des interfaces dynamiques. J'utilise aussi <strong>Figma</strong> pour penser l'expérience utilisateur avant de coder.</p>
       <p>J'explore actuellement <strong>React</strong> et <strong>WordPress</strong>. Chaque projet est une opportunité d'apprendre et de grandir.</p>
       <div class="about-pills">
-        <span class="pill p1">Ouverte d'esprit</span>
-        <span class="pill p2">Compétente</span>
-        <span class="pill p3">Rigoureuse</span>
-        <span class="pill p4">Apprenante</span>
+        <span class="pill p1">Ouverte d'esprit</span><span class="pill p2">Compétente</span>
+        <span class="pill p3">Rigoureuse</span><span class="pill p4">Apprenante</span>
       </div>
     </div>
     <div class="about-cards reveal d1">
@@ -314,8 +317,7 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     </div>
   </div>
 </section>
- 
-<!-- SKILLS -->
+
 <section id="skills">
   <div class="skills-bg"></div>
   <div class="eyebrow" style="color:var(--gold);">Compétences</div>
@@ -370,8 +372,7 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     </div>
   </div>
 </section>
- 
-<!-- PROJECTS -->
+
 <section id="projects">
   <div class="reveal"><div class="eyebrow">Projets</div><h2 class="s-title">Ce que j'ai <em>construit</em></h2></div>
   <div class="pg">
@@ -381,7 +382,7 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
         <div class="ptags"><span class="ptag">Laravel</span><span class="ptag">PHP</span><span class="ptag">JavaScript</span><span class="ptag">MySQL</span></div>
         <h3 class="pname">Arkeya</h3>
         <p class="pdesc">Plateforme de gestion de tâches et de collaboration en équipe. Conçue pour faciliter l'organisation et la communication autour des projets, avec suivi des avancements et gestion des membres.</p>
-        <a href="https://github.com/francis5245/RouckyAnge" target="_blank" class="plink">Voir sur GitHub →</a>
+        <a href="https://github.com/abeni229/Arkeya" target="_blank" rel="noopener noreferrer" class="plink">Voir sur GitHub →</a>
       </div>
     </div>
     <div class="pcard reveal d2">
@@ -390,13 +391,12 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
         <div class="ptags"><span class="ptag">Laravel</span><span class="ptag">PHP</span><span class="ptag">JavaScript</span><span class="ptag">MySQL</span></div>
         <h3 class="pname">RoukLegal</h3>
         <p class="pdesc">Application web dans le domaine juridique, conçue pour digitaliser et simplifier les processus légaux. Interface claire et fonctionnalités robustes pour les professionnels du droit.</p>
-        <a href="https://github.com/abeni229/RoukLegal" target="_blank" class="plink">Voir sur GitHub →</a>
+        <a href="https://github.com/abeni229/RoukLegal" target="_blank" rel="noopener noreferrer" class="plink">Voir sur GitHub →</a>
       </div>
     </div>
   </div>
 </section>
- 
-<!-- CONTACT -->
+
 <section id="contact">
   <div class="contact-deco"></div>
   <div class="eyebrow">Contact</div>
@@ -405,71 +405,69 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     <div>
       <p class="c-intro reveal">Vous avez un projet, une mission ou une opportunité à partager ? Je suis disponible et enthousiaste à l'idée de collaborer sur de nouveaux défis !</p>
       <div class="c-items">
-        <a href="/cdn-cgi/l/email-protection#42252338232e2b2d37302d3729233b23362a02252f232b2e6c212d2f" class="citem reveal"><div class="cico ci1">✉️</div><div><span class="c-lbl">Email</span><span class="c-val"><span class="__cf_email__" data-cfemail="81e6e0fbe0ede8eef4f3eef4eae0f8e0f5e9c1e6ece0e8edafe2eeec">[email&#160;protected]</span></span></div></a>
-        <a href="https://www.linkedin.com/in/roukayath-gazaliou" target="_blank" class="citem reveal d1"><div class="cico ci2">💼</div><div><span class="c-lbl">LinkedIn</span><span class="c-val">Roukayath Gazaliou</span></div></a>
-        <a href="https://github.com/abeni229" target="_blank" class="citem reveal d2"><div class="cico ci3">⌨️</div><div><span class="c-lbl">GitHub</span><span class="c-val">github.com/abeni229</span></div></a>
+        <a href="mailto:gazaliouroukayath@gmail.com" class="citem reveal"><div class="cico ci1">✉️</div><div><span class="c-lbl">Email</span><span class="c-val">gazaliouroukayath@gmail.com</span></div></a>
+        <a href="https://www.linkedin.com/in/roukayath-gazaliou" target="_blank" rel="noopener noreferrer" class="citem reveal d1"><div class="cico ci2">💼</div><div><span class="c-lbl">LinkedIn</span><span class="c-val">Roukayath Gazaliou</span></div></a>
+        <a href="https://github.com/abeni229" target="_blank" rel="noopener noreferrer" class="citem reveal d2"><div class="cico ci3">⌨️</div><div><span class="c-lbl">GitHub</span><span class="c-val">github.com/abeni229</span></div></a>
       </div>
     </div>
     <div class="reveal d2">
       <div class="direct-contact">
         <p class="dc-intro">Cliquez directement sur le moyen de contact de votre choix — je vous répondrai dans les plus brefs délais !</p>
-        <a href="mailto:gazaliouroukayath@gmail.com?subject=Opportunité de collaboration&body=Bonjour Roukayath,%0D%0A%0D%0AJe vous contacte au sujet de..." class="dc-btn dc-email">
+        <a href="mailto:gazaliouroukayath@gmail.com?subject=Opportunité de collaboration&body=Bonjour Roukayath," class="dc-btn dc-email">
           <span class="dc-btn-icon">✉️</span>
-          <div>
-            <span class="dc-btn-label">Envoyer un email</span>
-            <span class="dc-btn-sub">gazaliouroukayath@gmail.com</span>
-          </div>
+          <div><span class="dc-btn-label">Envoyer un email</span><span class="dc-btn-sub">gazaliouroukayath@gmail.com</span></div>
           <span class="dc-arrow">→</span>
         </a>
-        <a href="https://www.linkedin.com/in/roukayath-gazaliou" target="_blank" class="dc-btn dc-linkedin">
+        <a href="https://www.linkedin.com/in/roukayath-gazaliou" target="_blank" rel="noopener noreferrer" class="dc-btn dc-linkedin">
           <span class="dc-btn-icon">💼</span>
-          <div>
-            <span class="dc-btn-label">M'envoyer un message LinkedIn</span>
-            <span class="dc-btn-sub">Réponse rapide garantie</span>
-          </div>
+          <div><span class="dc-btn-label">M'envoyer un message LinkedIn</span><span class="dc-btn-sub">Réponse rapide garantie</span></div>
           <span class="dc-arrow">→</span>
         </a>
-        <a href="https://github.com/abeni229" target="_blank" class="dc-btn dc-github">
+        <a href="https://github.com/abeni229" target="_blank" rel="noopener noreferrer" class="dc-btn dc-github">
           <span class="dc-btn-icon">⌨️</span>
-          <div>
-            <span class="dc-btn-label">Voir mes projets sur GitHub</span>
-            <span class="dc-btn-sub">github.com/abeni229</span>
-          </div>
+          <div><span class="dc-btn-label">Voir mes projets sur GitHub</span><span class="dc-btn-sub">github.com/abeni229</span></div>
           <span class="dc-arrow">→</span>
         </a>
       </div>
     </div>
   </div>
 </section>
- 
+
 <footer>Conçu & développé avec ❤️ par <span>Roukayath Gazaliou</span> · 2025</footer>
- 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Scroll reveal
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileNav.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+document.querySelectorAll('.mnav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
+
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, {threshold:.1});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
- 
-// Barres skills
+
 const bobs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.style.width = e.target.dataset.w; });
 }, {threshold:.3});
 document.querySelectorAll('.sfill').forEach(b => bobs.observe(b));
- 
-// Nav shadow
+
 window.addEventListener('scroll', () => {
   document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,.08)' : 'none';
 });
-
-// Form
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = document.getElementById('fsub');
-  btn.textContent = '✓ Message envoyé !';
-  btn.style.background = 'linear-gradient(135deg,#06D6A0,#118AB2)';
-  setTimeout(() => { btn.textContent = 'Envoyer le message ✉️'; btn.style.background = ''; e.target.reset(); }, 3500);
-}
 </script>
 </body>
 </html>
