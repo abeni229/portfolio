@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roukayath Gazaliou — Développeuse Full Stack</title>
+<meta name="description" content="Roukayath Gazaliou — Développeuse Full Stack spécialisée en Laravel, PHP et JavaScript. Basée au Bénin, disponible pour des projets web.">
+<meta name="keywords" content="développeuse full stack, Laravel, PHP, JavaScript, Figma, Bénin, portfolio">
+<meta name="author" content="Roukayath Gazaliou">
+<meta property="og:title" content="Roukayath Gazaliou — Développeuse Full Stack">
+<meta property="og:description" content="Portfolio de Roukayath Gazaliou, développeuse Full Stack passionnée.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👩‍💻</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -26,7 +34,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--cream);color:var(--text-dark);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
-
+ 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 5rem;background:rgba(255,248,240,0.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,107,107,0.1);}
 .nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.5rem;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
@@ -38,7 +46,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .nav-cta{padding:.6rem 1.5rem;background:var(--grad1);color:white!important;border-radius:100px;font-weight:600!important;box-shadow:0 4px 20px rgba(255,107,107,.35);transition:transform .3s,box-shadow .3s!important;}
 .nav-cta::after{display:none!important;}
 .nav-cta:hover{transform:translateY(-2px)!important;box-shadow:0 8px 30px rgba(255,107,107,.5)!important;}
-
+ 
 /* HERO */
 #hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 5rem 4rem;position:relative;overflow:hidden;gap:4rem;}
 .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.3;pointer-events:none;animation:blobFloat 8s ease-in-out infinite;}
@@ -47,12 +55,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .blob-3{width:300px;height:300px;background:#9B5DE5;top:40%;right:10%;animation-delay:4s;}
 .blob-4{width:200px;height:200px;background:#06D6A0;bottom:25%;left:35%;animation-delay:1s;}
 @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(20px,-30px) scale(1.05);}66%{transform:translate(-15px,20px) scale(.95);}}
-
+ 
 .hero-left{position:relative;z-index:2;}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem 1.1rem;background:white;border-radius:100px;font-size:.75rem;font-weight:600;color:var(--text-mid);box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:2rem;opacity:0;animation:slideUp .7s ease .2s forwards;}
 .hero-badge-dot{width:8px;height:8px;background:var(--teal);border-radius:50%;box-shadow:0 0 0 3px rgba(6,214,160,.2);animation:pulse 2s ease infinite;}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(6,214,160,.2);}50%{box-shadow:0 0 0 6px rgba(6,214,160,.1);}}
-
+ 
 .hero-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3rem,6vw,5.5rem);line-height:1.05;letter-spacing:-.03em;color:var(--text-dark);opacity:0;animation:slideUp .8s ease .4s forwards;}
 .hero-title .g{background:var(--grad3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;}
 .hero-sub{font-size:1.05rem;color:var(--text-mid);line-height:1.75;margin-top:1.5rem;max-width:480px;opacity:0;animation:slideUp .8s ease .6s forwards;}
@@ -61,7 +69,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .btn-main:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(255,107,107,.5);}
 .btn-sec{padding:1rem 2.2rem;background:white;color:var(--text-dark);border-radius:100px;font-weight:600;font-size:.9rem;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s;border:1.5px solid rgba(0,0,0,.07);}
 .btn-sec:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.12);}
-
+ 
 .hero-right{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;opacity:0;animation:fadeIn 1s ease .9s forwards;}
 .hero-visual{width:360px;height:460px;background:white;border-radius:28px;box-shadow:0 40px 80px rgba(0,0,0,.12);padding:2.5rem;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;}
 .hero-visual::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--grad4);}
@@ -85,7 +93,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .fci1{background:rgba(255,107,107,.15);}
 .fci2{background:rgba(6,214,160,.15);}
 @keyframes floatCard{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
-
+ 
 /* ABOUT */
 #about{padding:8rem 5rem;background:white;position:relative;overflow:hidden;}
 .about-shape{position:absolute;width:600px;height:600px;border-radius:50%;background:linear-gradient(135deg,rgba(255,107,107,.05),rgba(155,93,229,.05));top:-200px;right:-200px;pointer-events:none;}
@@ -111,7 +119,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .ai3{background:rgba(155,93,229,.12);}
 .acard-title{font-weight:700;font-size:.88rem;color:var(--text-dark);margin-bottom:.3rem;}
 .acard-text{font-size:.78rem;color:var(--text-light);line-height:1.6;}
-
+ 
 /* SKILLS */
 #skills{padding:8rem 5rem;background:var(--dark);position:relative;overflow:hidden;color:white;}
 .skills-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 10% 50%,rgba(255,107,107,.12) 0%,transparent 50%),radial-gradient(ellipse at 90% 20%,rgba(155,93,229,.15) 0%,transparent 50%),radial-gradient(ellipse at 50% 90%,rgba(6,214,160,.1) 0%,transparent 50%);pointer-events:none;}
@@ -141,7 +149,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .sf4{background:linear-gradient(90deg,var(--gold),var(--orange));}
 .sf5{background:linear-gradient(90deg,var(--blue),var(--teal));}
 .sf6{background:linear-gradient(90deg,var(--orange),var(--gold));}
-
+ 
 /* PROJECTS */
 #projects{padding:8rem 5rem;background:var(--cream);position:relative;overflow:hidden;}
 .pg{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
@@ -159,7 +167,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .pdesc{font-size:.83rem;line-height:1.75;color:var(--text-mid);margin-bottom:1.3rem;}
 .plink{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:700;color:var(--coral);text-decoration:none;transition:gap .3s;}
 .plink:hover{gap:.8rem;}
-
+ 
 /* CONTACT */
 #contact{padding:8rem 5rem;background:white;position:relative;overflow:hidden;}
 .contact-deco{position:absolute;width:500px;height:500px;background:linear-gradient(135deg,rgba(255,107,107,.06),rgba(155,93,229,.06));border-radius:50%;bottom:-200px;right:-100px;pointer-events:none;}
@@ -183,16 +191,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .ft{height:120px;resize:none;}
 .fsub{padding:1rem 2rem;background:var(--grad1);color:white;border:none;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;box-shadow:0 8px 30px rgba(255,107,107,.35);transition:transform .3s,box-shadow .3s;}
 .fsub:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(255,107,107,.5);}
-
+ 
 footer{background:var(--dark);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5rem;font-size:.78rem;}
 footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;}
-
+ 
 @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
-
+ 
 @media(max-width:900px){
   nav{padding:1.2rem 2rem;}
   #hero{grid-template-columns:1fr;padding:7rem 2rem 4rem;}
@@ -203,10 +211,32 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
   .frow{grid-template-columns:1fr;}
   .nav-links li:not(:last-child){display:none;}
 }
+ 
+.direct-contact { display: flex; flex-direction: column; gap: 1rem; }
+.dc-intro { font-size: .85rem; color: var(--text-light); margin-bottom: .5rem; line-height: 1.6; }
+.dc-btn { display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 1.5rem; border-radius: 16px; text-decoration: none; border: 1.5px solid rgba(0,0,0,.07); transition: all .3s; position: relative; overflow: hidden; }
+.dc-btn::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity .3s; }
+.dc-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,.1); }
+.dc-btn:hover::before { opacity: 1; }
+.dc-btn:hover .dc-arrow { transform: translateX(4px); }
+.dc-email { background: white; }
+.dc-email::before { background: linear-gradient(135deg, rgba(255,107,107,.05), rgba(255,140,66,.05)); }
+.dc-email:hover { border-color: rgba(255,107,107,.3); }
+.dc-linkedin { background: white; }
+.dc-linkedin::before { background: linear-gradient(135deg, rgba(17,138,178,.05), rgba(6,214,160,.05)); }
+.dc-linkedin:hover { border-color: rgba(17,138,178,.3); }
+.dc-github { background: white; }
+.dc-github::before { background: linear-gradient(135deg, rgba(155,93,229,.05), rgba(255,107,107,.05)); }
+.dc-github:hover { border-color: rgba(155,93,229,.3); }
+.dc-btn-icon { font-size: 1.4rem; flex-shrink: 0; }
+.dc-btn label, .dc-btn div { display: flex; flex-direction: column; gap: .2rem; flex: 1; }
+.dc-btn-label { font-weight: 700; font-size: .88rem; color: var(--text-dark); }
+.dc-btn-sub { font-size: .72rem; color: var(--text-light); }
+.dc-arrow { font-size: 1rem; color: var(--text-light); transition: transform .3s; margin-left: auto; }
 </style>
 </head>
 <body>
-
+ 
 <nav>
   <a href="#hero" class="nav-logo">RG.</a>
   <ul class="nav-links">
@@ -216,14 +246,14 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     <li><a href="#contact" class="nav-cta">Me contacter</a></li>
   </ul>
 </nav>
-
+ 
 <!-- HERO -->
 <section id="hero">
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
   <div class="blob blob-4"></div>
-
+ 
   <div class="hero-left">
     <div class="hero-badge"><span class="hero-badge-dot"></span>Disponible pour de nouvelles opportunités</div>
     <h1 class="hero-title">Je construis des<br><span class="g">apps qui comptent.</span></h1>
@@ -233,7 +263,7 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
       <a href="#contact" class="btn-sec">Me contacter</a>
     </div>
   </div>
-
+ 
   <div class="hero-right">
     <div class="hero-visual">
       <div>
@@ -259,7 +289,7 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     <div class="float-card fc2"><div class="fci fci2">✅</div>RoukLegal livré</div>
   </div>
 </section>
-
+ 
 <!-- ABOUT -->
 <section id="about">
   <div class="about-shape"></div>
@@ -284,7 +314,7 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     </div>
   </div>
 </section>
-
+ 
 <!-- SKILLS -->
 <section id="skills">
   <div class="skills-bg"></div>
@@ -340,7 +370,7 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     </div>
   </div>
 </section>
-
+ 
 <!-- PROJECTS -->
 <section id="projects">
   <div class="reveal"><div class="eyebrow">Projets</div><h2 class="s-title">Ce que j'ai <em>construit</em></h2></div>
@@ -365,7 +395,7 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-deco"></div>
@@ -375,40 +405,58 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     <div>
       <p class="c-intro reveal">Vous avez un projet, une mission ou une opportunité à partager ? Je suis disponible et enthousiaste à l'idée de collaborer sur de nouveaux défis !</p>
       <div class="c-items">
-        <a href="mailto:gazaliouroukayath@gmail.com" class="citem reveal"><div class="cico ci1">✉️</div><div><span class="c-lbl">Email</span><span class="c-val">gazaliouroukayath@gmail.com</span></div></a>
+        <a href="/cdn-cgi/l/email-protection#42252338232e2b2d37302d3729233b23362a02252f232b2e6c212d2f" class="citem reveal"><div class="cico ci1">✉️</div><div><span class="c-lbl">Email</span><span class="c-val"><span class="__cf_email__" data-cfemail="81e6e0fbe0ede8eef4f3eef4eae0f8e0f5e9c1e6ece0e8edafe2eeec">[email&#160;protected]</span></span></div></a>
         <a href="https://www.linkedin.com/in/roukayath-gazaliou" target="_blank" class="citem reveal d1"><div class="cico ci2">💼</div><div><span class="c-lbl">LinkedIn</span><span class="c-val">Roukayath Gazaliou</span></div></a>
         <a href="https://github.com/abeni229" target="_blank" class="citem reveal d2"><div class="cico ci3">⌨️</div><div><span class="c-lbl">GitHub</span><span class="c-val">github.com/abeni229</span></div></a>
       </div>
     </div>
     <div class="reveal d2">
-      <form class="cform" onsubmit="handleSubmit(event)">
-        <div class="frow">
-          <div class="fg"><label class="fl">Nom</label><input type="text" class="fi" placeholder="Votre nom" required></div>
-          <div class="fg"><label class="fl">Email</label><input type="email" class="fi" placeholder="votre@email.com" required></div>
-        </div>
-        <div class="fg"><label class="fl">Sujet</label><input type="text" class="fi" placeholder="De quoi s'agit-il ?"></div>
-        <div class="fg"><label class="fl">Message</label><textarea class="ft" placeholder="Décrivez votre projet..." required></textarea></div>
-        <button type="submit" class="fsub" id="fsub">Envoyer le message ✉️</button>
-      </form>
+      <div class="direct-contact">
+        <p class="dc-intro">Cliquez directement sur le moyen de contact de votre choix — je vous répondrai dans les plus brefs délais !</p>
+        <a href="mailto:gazaliouroukayath@gmail.com?subject=Opportunité de collaboration&body=Bonjour Roukayath,%0D%0A%0D%0AJe vous contacte au sujet de..." class="dc-btn dc-email">
+          <span class="dc-btn-icon">✉️</span>
+          <div>
+            <span class="dc-btn-label">Envoyer un email</span>
+            <span class="dc-btn-sub">gazaliouroukayath@gmail.com</span>
+          </div>
+          <span class="dc-arrow">→</span>
+        </a>
+        <a href="https://www.linkedin.com/in/roukayath-gazaliou" target="_blank" class="dc-btn dc-linkedin">
+          <span class="dc-btn-icon">💼</span>
+          <div>
+            <span class="dc-btn-label">M'envoyer un message LinkedIn</span>
+            <span class="dc-btn-sub">Réponse rapide garantie</span>
+          </div>
+          <span class="dc-arrow">→</span>
+        </a>
+        <a href="https://github.com/abeni229" target="_blank" class="dc-btn dc-github">
+          <span class="dc-btn-icon">⌨️</span>
+          <div>
+            <span class="dc-btn-label">Voir mes projets sur GitHub</span>
+            <span class="dc-btn-sub">github.com/abeni229</span>
+          </div>
+          <span class="dc-arrow">→</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
-
+ 
 <footer>Conçu & développé avec ❤️ par <span>Roukayath Gazaliou</span> · 2025</footer>
-
-<script>
+ 
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Scroll reveal
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, {threshold:.1});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
+ 
 // Barres skills
 const bobs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.style.width = e.target.dataset.w; });
 }, {threshold:.3});
 document.querySelectorAll('.sfill').forEach(b => bobs.observe(b));
-
+ 
 // Nav shadow
 window.addEventListener('scroll', () => {
   document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,.08)' : 'none';
